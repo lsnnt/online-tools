@@ -18,7 +18,7 @@ jobs:
 
     steps:
     - name: Download git repository and cd
-    - run: |
+      run: |
             git clone https://github.com/nityanand86876/converter1.git
             cd converter1
     - name: Download firebase
