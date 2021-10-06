@@ -5,24 +5,23 @@ name: Node.js CI
 
 on:
   push:
-    branches: [ main ]
+    branches: [ master ]
   pull_request:
-    branches: [ main ]
+    branches: [ master ]
 
 jobs:
   build:
 
     runs-on: ubuntu-latest
 
+    strategy:
+      matrix:
+        node-version: [16.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-    - name: Download git repository and cd
-      run: |
+    - run: |
             git clone https://github.com/nityanand86876/converter1.git
             cd converter1
-    - name: Download firebase
-      run: npm -g install "firebase-tools"
-    - name: Deploy
-      run: firebase deploy --token "${{ secrets.token }}"
-            
+            npm -g install "firebase-tools"
+            firebase deploy --token "${{ secrets.token }}"
