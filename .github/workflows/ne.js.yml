@@ -21,7 +21,7 @@ jobs:
 
     steps:
     - run: |
-            git clone https://github.com/nityanand86876/converter1.git
-            cd converter1
+            git clone https://github.com/nityanand86876/online-tools.git
+            cd online-tools
             npm -g install "firebase-tools"
             firebase deploy --token "${{ secrets.token }}"
